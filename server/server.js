@@ -71,7 +71,7 @@ app.post("/create-checkout-session", async (req, res) => {
       });
     }
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await stripeClient.checkout.sessions.create({
       mode: "payment",
 
       customer_email: email,
