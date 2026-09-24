@@ -16,6 +16,14 @@ The application allows users to enter their email address and choose or enter a 
 * ❌ Payment cancellation handling
 * 🔐 Environment variables for sensitive Stripe credentials
 
+## Screenshots
+
+<p>
+  <img src="./docs/screenshots/donation.png" alt="donation">
+  <img src="./docs/screenshots/stripe.png" alt="stripe">
+  <img src="./docs/screenshots/merci.hmtl.png" alt="success_page">
+
+</p>
 ## Technologies
 
 * **HTML5**
