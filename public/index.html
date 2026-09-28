@@ -42,17 +42,20 @@
         }
 
         document.getElementById('donate').onclick = async () => {
-        const amount = document.getElementById('amount').value;
-        const email = document.getElementById('email').value;
-        if(!email) return alert('Veuillez entrer votre email');
-        
-        const res = await fetch('/create-checkout-session', {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({ amount: amount*100, email }) // Stripe uses centimes
-        });
-        const data = await res.json();
-        window.location = data.url;
+            const amount = document.getElementById('amount').value;
+            const email = document.getElementById('email').value;
+            if(!email) return alert('Veuillez entrer votre email');
+            
+            const res = await fetch('/create-checkout-session', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({ amount: amount * 100, email }) // Stripe uses centimes
+            });
+            const data = await res.json();
+
+            window.location = data.url;
+            console.log("Stripe response:", data)
+
         }
     </script>
 </body>

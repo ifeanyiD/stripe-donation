@@ -50,7 +50,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.post("/create-checkout-session", async (req, res) => {
   try {
     const { amount, email } = req.body;
-    console.log(amount)
+    
     // Basic validation
     if (!email || !amount) {
       return res.status(400).json({
