@@ -8,6 +8,11 @@ dotenv.config();
 const app = express();
 const stripeClient = stripe(process.env.STRIPE_SECRET_KEY);
 
+app.use((req, res, next) => {
+    console.log("REQUEST:", req.method, req.originalUrl);
+    next();
+});
+
 app.post(
     "/webhook",
     express.raw({type: "application/json"}),
@@ -111,6 +116,6 @@ app.post("/create-checkout-session", async (req, res) => {
 
 const PORT = process.env.PORT
 
-app.listen(PORT, () => {
-  console.log("Server running at http://localhost:3000");
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running at ${PORT}`);
 });
