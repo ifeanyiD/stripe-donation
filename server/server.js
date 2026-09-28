@@ -94,9 +94,9 @@ app.post("/create-checkout-session", async (req, res) => {
 
       payment_method_types: ["card"],
 
-      success_url: "http://localhost:3000/merci.html",
+      success_url: "https://stripe-donation-sfd7.onrender.com//merci.html",
 
-      cancel_url: "http://localhost:3000/",
+      cancel_url: "https://stripe-donation-sfd7.onrender.com/",
     });
 
     res.json({ url: session.url, });
@@ -109,6 +109,8 @@ app.post("/create-checkout-session", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+const PORT = process.env.PORT
+
+app.listen(PORT, () => {
   console.log("Server running at http://localhost:3000");
 });
